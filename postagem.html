@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="postagemSelecionada">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detalhes</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/style.css">
+    <!-- JS -->
+    <script src="./scripts/postagemController.js" defer></script>
+    <!-- Angular -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+</head>
+
+<style scoped>
+    .card-img-top{
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+    }
+    
+    main{
+        height: 80vh;
+    }
+
+</style>
+
+<body>
+    <header>
+        <h1 id="titulo">Daily Planet</h1>
+        <div id="div_quote">
+            <span class="linha_vermelha"></span>
+            <span id="quote">Vincit omnia veritas<strong>*</strong></span>
+            <span class="linha_vermelha"></span>
+        </div>
+    </header>
+    <main>
+        <div class="container" ng-controller="postagemController">
+            <div class="row">
+                <img ng-src="https://api-rest-post-diegocandido.herokuapp.com{{ postSelecionado.thumbImage }}" class="card-img-top" alt="...">
+                <h5 class="card-title">{{ postSelecionado.title }}</h5>
+                <p class="card-text"> {{ postSelecionado.description }}</p>
+            </div>
+            <div class="autor">
+                <span class="nomeAutor">Escrito por: {{ postSelecionado.profileName }}</span>
+                <img class="escritor" ng-src="https://api-rest-post-diegocandido.herokuapp.com{{ postSelecionado.profileThumbImage }}" alt=""> 
+                <span class="postDate">Publicado em: {{ postSelecionado.postDate }}</span>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <span>Daily Planet agradece sua visita</span>
+    </footer>
+</body>
+
+</html>
